@@ -1,232 +1,700 @@
 // ============================================================
-// SECTION 1: BLOG DATA
-// All articles stored as an array of objects
+// SECTION 1: BOOK DATA
+// All books stored as an array of objects (Module 2 - Variables & Data Types)
 // ============================================================
 
-const articles = [
+const books = [
   {
     id: 1,
-    title: "Getting Started with JavaScript in 2025",
-    excerpt: "Learn the fundamentals of JavaScript and why it remains the most popular programming language in the world.",
-    category: "programming",
-    author: "Alex Johnson",
-    date: "Jan 15, 2025",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&q=80"
+    title: "A Court of Thorns and Roses",
+    author: "Sarah J. Maas",
+    genre: "fantasy",
+    year: 2015,
+    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80",
+    description: "A young huntress is taken to a magical land after killing a wolf in the woods. What starts as a cold captor-captive relationship turns into something far more dangerous.",
+    rating: 4.8,
+    reviewCount: 0,
+    tags: ["love triangle", "magic", "fae world", "enemies to lovers"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 2,
-    title: "Understanding AI: A Beginner's Guide",
-    excerpt: "Artificial intelligence is transforming every industry. Here is what you need to know to get started.",
-    category: "ai",
-    author: "Sarah Chen",
-    date: "Jan 22, 2025",
-    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80"
+    title: "The Name of the Wind",
+    author: "Patrick Rothfuss",
+    genre: "fantasy",
+    year: 2007,
+    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&q=80",
+    description: "The riveting first-person narrative of a young man who grows up to be the most notorious wizard his world has ever seen.",
+    rating: 4.9,
+    reviewCount: 0,
+    tags: ["magic system", "coming of age", "dark academia", "epic quest"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 3,
-    title: "CSS Grid vs Flexbox: When to Use Which",
-    excerpt: "Both CSS Grid and Flexbox are powerful layout tools. This guide will help you choose the right one.",
-    category: "design",
-    author: "Maria Lopez",
-    date: "Feb 3, 2025",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+    title: "It Ends with Us",
+    author: "Colleen Hoover",
+    genre: "romance",
+    year: 2016,
+    cover: "https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?w=400&q=80",
+    description: "A brave and heartbreaking novel that digs its fingers into you and doesn't let go — a story about love, loss, and the courage to start over.",
+    rating: 4.7,
+    reviewCount: 0,
+    tags: ["love triangle", "emotional", "second chances", "heartbreaking"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 4,
-    title: "Top 10 VS Code Extensions for Developers",
-    excerpt: "Boost your productivity with these must-have Visual Studio Code extensions every developer should install.",
-    category: "tools",
-    author: "James Park",
-    date: "Feb 10, 2025",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80"
+    title: "Fourth Wing",
+    author: "Rebecca Yarros",
+    genre: "fantasy",
+    year: 2023,
+    cover: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&q=80",
+    description: "Twenty-year-old Violet Sorrengail is pushed into the rider quadrant to bond with a dragon. But dragons are far more terrifying than any other danger she faces.",
+    rating: 4.9,
+    reviewCount: 0,
+    tags: ["dragons", "enemies to lovers", "magic", "love triangle"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 5,
-    title: "How Machine Learning Models Actually Work",
-    excerpt: "Demystifying machine learning: from training data to predictions, explained in simple terms.",
-    category: "ai",
-    author: "Sarah Chen",
-    date: "Feb 18, 2025",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80"
+    title: "Gone Girl",
+    author: "Gillian Flynn",
+    genre: "thriller",
+    year: 2012,
+    cover: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&q=80",
+    description: "On the morning of their fifth wedding anniversary, Amy Dunne disappears. The media frenzy that follows brings dark secrets to light.",
+    rating: 4.6,
+    reviewCount: 0,
+    tags: ["mystery", "dark twists", "unreliable narrator", "psychological"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 6,
-    title: "Building Responsive Layouts with SCSS",
-    excerpt: "Learn how to use SCSS mixins and variables to create clean, maintainable responsive designs.",
-    category: "design",
-    author: "Maria Lopez",
-    date: "Mar 1, 2025",
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&q=80"
+    title: "The Hunger Games",
+    author: "Suzanne Collins",
+    genre: "adventure",
+    year: 2008,
+    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=400&q=80",
+    description: "In a dystopian future, twelve-year-old Primrose is chosen for the Hunger Games. Her sister Katniss volunteers in her place — and nothing will ever be the same.",
+    rating: 4.8,
+    reviewCount: 0,
+    tags: ["dystopia", "survival", "love triangle", "strong heroine"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 7,
-    title: "Python vs JavaScript: Which Should You Learn First?",
-    excerpt: "Choosing your first programming language is a big decision. We compare Python and JavaScript head to head.",
-    category: "programming",
-    author: "Alex Johnson",
-    date: "Mar 8, 2025",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&q=80"
+    title: "Throne of Glass",
+    author: "Sarah J. Maas",
+    genre: "fantasy",
+    year: 2012,
+    cover: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80",
+    description: "An assassin is offered a chance at freedom if she wins a competition to become the king's champion. But the palace hides a dark and deadly secret.",
+    rating: 4.7,
+    reviewCount: 0,
+    tags: ["assassin", "magic", "love triangle", "strong heroine"],
+    nyt: "NYT Bestseller"
   },
   {
     id: 8,
-    title: "Git & GitHub: A Complete Beginner's Guide",
-    excerpt: "Version control is an essential skill for every developer. Master Git and GitHub from scratch.",
-    category: "tools",
-    author: "James Park",
-    date: "Mar 15, 2025",
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&q=80"
+    title: "The Silent Patient",
+    author: "Alex Michaelides",
+    genre: "thriller",
+    year: 2019,
+    cover: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=400&q=80",
+    description: "A famous painter shoots her husband five times and then never speaks another word. A criminal psychotherapist is obsessed with uncovering her motive.",
+    rating: 4.5,
+    reviewCount: 0,
+    tags: ["psychological", "mystery", "dark twists", "unreliable narrator"],
+    nyt: "#1 NYT Bestseller"
   },
   {
     id: 9,
-    title: "The Future of Web Design: Trends for 2025",
-    excerpt: "From glassmorphism to AI-generated layouts, discover the design trends shaping the web this year.",
-    category: "design",
-    author: "Maria Lopez",
-    date: "Mar 22, 2025",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80"
+    title: "Beach Read",
+    author: "Emily Henry",
+    genre: "romance",
+    year: 2020,
+    cover: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    description: "A romance writer and a literary fiction author swap genres for the summer — and end up swapping a lot more than that.",
+    rating: 4.6,
+    reviewCount: 0,
+    tags: ["enemies to lovers", "second chances", "emotional", "witty"],
+    nyt: "NYT Bestseller"
   }
 ];
 
+// Tüm mevcut etiketler (tag selector için)
+const allTags = [
+  "love triangle", "magic", "fae world", "enemies to lovers",
+  "magic system", "coming of age", "dark academia", "epic quest",
+  "emotional", "second chances", "heartbreaking", "dragons",
+  "mystery", "dark twists", "unreliable narrator", "psychological",
+  "dystopia", "survival", "strong heroine", "assassin", "witty"
+];
 
 // ============================================================
-// SECTION 2: RENDER ARTICLES
-// Functions that create and display article cards
+// SECTION 2: STATE VARIABLES
+// Track active filters and reviews (Module 2 - Variables)
 // ============================================================
 
-// DOM elementlerini seçiyoruz
-const articlesGrid   = document.getElementById("articlesGrid");
-const emptyMessage   = document.getElementById("emptyMessage");
+let activeGenre    = "all";       // Aktif tür filtresi
+let selectedRating = 0;           // Yıldız puanı
+let selectedTags   = [];          // Seçilen etiketler
+let currentBookId  = null;        // Modal'da açık olan kitap
 
-// Tek bir kart HTML'i üretir (Function – Module 5)
-function createCardHTML(article) {
+// Her kitabın yorumlarını tutan obje
+// key: bookId, value: reviews array
+let reviewsData = {};
+
+// reviewsData'yı localStorage'dan yükle (Module 2 - Variables Ek)
+function loadReviews() {
+  const saved = localStorage.getItem("pageturner_reviews");
+  if (saved) {
+    reviewsData = JSON.parse(saved);
+
+    // Her kitabın reviewCount'unu güncelle (Loop - Module 4)
+    for (let i = 0; i < books.length; i++) {
+      const bookReviews = reviewsData[books[i].id];
+      if (bookReviews) {
+        books[i].reviewCount = bookReviews.length;
+      }
+    }
+  }
+}
+
+// reviewsData'yı localStorage'a kaydet
+function saveReviews() {
+  localStorage.setItem("pageturner_reviews", JSON.stringify(reviewsData));
+}
+
+loadReviews();
+
+// ============================================================
+// SECTION 3: RENDER BOOKS
+// Create and display book cards (Module 5 - Functions)
+// ============================================================
+
+const booksGrid    = document.getElementById("booksGrid");
+const emptyMessage = document.getElementById("emptyMessage");
+
+// Yıldız HTML'i üretir (Function - Module 5)
+function generateStars(rating) {
+  const fullStars  = Math.floor(rating);        // Tam yıldız sayısı
+  const halfStar   = rating % 1 >= 0.5;         // Yarım yıldız var mı?
+  let starsHTML    = "";
+
+  // Tam yıldızları ekle (Loop - Module 4)
+  for (let i = 0; i < fullStars; i++) {
+    starsHTML += '<i class="fa-solid fa-star"></i>';
+  }
+
+  // Yarım yıldız ekle (Conditional - Module 4)
+  if (halfStar) {
+    starsHTML += '<i class="fa-solid fa-star-half-stroke"></i>';
+  }
+
+  return starsHTML;
+}
+
+// Kitap etiketlerini HTML'e çevirir
+function generateTagsHTML(tags) {
+  let html = "";
+  for (let i = 0; i < tags.length; i++) {
+    html += `<span class="book-card__tag">#${tags[i]}</span>`;
+  }
+  return html;
+}
+
+// Tek bir kitap kartı HTML'i üretir (Function - Module 5)
+function createBookCardHTML(book) {
+  const reviews     = reviewsData[book.id] || [];
+  const reviewCount = reviews.length;
+
   return `
-    <article class="card">
+    <article class="book-card">
+      <span class="book-card__badge">${book.nyt}</span>
       <img
-        class="card__image"
-        src="${article.image}"
-        alt="${article.title}"
+        class="book-card__cover"
+        src="${book.cover}"
+        alt="${book.title}"
         loading="lazy"
       />
-      <div class="card__body">
-        <span class="card__tag">${article.category}</span>
-        <h3 class="card__title">${article.title}</h3>
-        <p class="card__excerpt">${article.excerpt}</p>
-        <div class="card__meta">
-          <span class="card__author">
-            <i class="fa-solid fa-user"></i> ${article.author}
+      <div class="book-card__body">
+        <span class="book-card__genre">${book.genre}</span>
+        <h3 class="book-card__title">${book.title}</h3>
+        <p class="book-card__author">
+          <i class="fa-solid fa-feather-pointed"></i> ${book.author} · ${book.year}
+        </p>
+        <div class="book-card__rating">
+          <span class="stars">${generateStars(book.rating)}</span>
+          <span class="rating-score">${book.rating}</span>
+          <span class="rating-count">(NYT)</span>
+        </div>
+        <div class="book-card__tags">
+          ${generateTagsHTML(book.tags)}
+        </div>
+        <div class="book-card__footer">
+          <span class="book-card__reviews-count">
+            <i class="fa-solid fa-comments"></i>
+            ${reviewCount} review${reviewCount !== 1 ? "s" : ""}
           </span>
-          <span class="card__date">
-            <i class="fa-solid fa-calendar"></i> ${article.date}
-          </span>
+          <button
+            class="book-card__btn"
+            onclick="openModal(${book.id})"
+          >
+            <i class="fa-solid fa-book-open"></i> Reviews
+          </button>
         </div>
       </div>
     </article>
   `;
 }
 
-// Verilen article dizisini ekrana render eder (Function – Module 5)
-function renderArticles(articleList) {
-  // Eğer hiç makale yoksa boş mesaj göster (Conditional – Module 4)
-  if (articleList.length === 0) {
-    articlesGrid.innerHTML = "";
+// Kitap listesini ekrana basar (Function - Module 5)
+function renderBooks(bookList) {
+  // Boş sonuç kontrolü (Conditional - Module 4)
+  if (bookList.length === 0) {
+    booksGrid.innerHTML = "";
     emptyMessage.classList.remove("hidden");
     return;
   }
 
-  // Boş mesajı gizle
   emptyMessage.classList.add("hidden");
 
-  // Her makale için kart oluştur ve birleştir (Loop – Module 4)
   let html = "";
-  for (let i = 0; i < articleList.length; i++) {
-    html += createCardHTML(articleList[i]);
+  // Her kitap için kart oluştur (Loop - Module 4)
+  for (let i = 0; i < bookList.length; i++) {
+    html += createBookCardHTML(bookList[i]);
   }
 
-  articlesGrid.innerHTML = html;
+  booksGrid.innerHTML = html;
 }
 
-// Sayfa ilk açıldığında tüm makaleleri göster
-renderArticles(articles);
+// İlk yükleme
+renderBooks(books);
 
 // ============================================================
-// SECTION 3: SEARCH & FILTER
-// Search bar and category filter buttons working together
+// SECTION 4: SEARCH & FILTER
+// Combined search and genre filter (Module 4 - Control Flow)
 // ============================================================
 
-const searchInput  = document.getElementById("searchInput");
-const filterBtns   = document.querySelectorAll(".filter-btn");
+const searchInput = document.getElementById("searchInput");
+const filterBtns  = document.querySelectorAll(".filter-btn");
 
-// Aktif kategoriyi takip eden değişken (Variables – Module 2)
-let activeCategory = "all";
-
-// Arama + Filtre mantığını birleştiren ana fonksiyon
 function filterAndSearch() {
-  // Arama kutusundaki metni al, küçük harfe çevir (Type Casting – Module 2)
+  // Arama terimini küçük harfe çevir (Type Casting - Module 2)
   const searchTerm = searchInput.value.toLowerCase().trim();
 
-  // Her makaleyi kontrol et (Loop + Conditional – Module 4)
   const results = [];
 
-  for (let i = 0; i < articles.length; i++) {
-    const article = articles[i];
+  // Her kitabı kontrol et (Loop + Conditional - Module 4)
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
 
-    // Kategori kontrolü
-    const categoryMatch =
-      activeCategory === "all" || article.category === activeCategory;
+    // Tür eşleşmesi (Operators - Module 3)
+    const genreMatch =
+      activeGenre === "all" || book.genre === activeGenre;
 
-    // Başlık veya özet arama terimi içeriyor mu?
-    const titleMatch   = article.title.toLowerCase().includes(searchTerm);
-    const excerptMatch = article.excerpt.toLowerCase().includes(searchTerm);
-    const searchMatch  = titleMatch || excerptMatch;
+    // Başlık, yazar veya etiket araması
+    const titleMatch  = book.title.toLowerCase().includes(searchTerm);
+    const authorMatch = book.author.toLowerCase().includes(searchTerm);
 
-    // Her iki koşul da sağlanıyorsa ekle (Logical Operators – Module 3)
-    if (categoryMatch && searchMatch) {
-      results.push(article);
+    // Etiket araması (Loop içinde Loop - Module 4)
+    let tagMatch = false;
+    for (let j = 0; j < book.tags.length; j++) {
+      if (book.tags[j].toLowerCase().includes(searchTerm)) {
+        tagMatch = true;
+        break;
+      }
+    }
+
+    const searchMatch = titleMatch || authorMatch || tagMatch;
+
+    // Her iki koşul sağlanıyorsa ekle (Logical Operators - Module 3)
+    if (genreMatch && searchMatch) {
+      results.push(book);
     }
   }
 
-  // Sonuçları ekrana bas
-  renderArticles(results);
+  renderBooks(results);
 }
 
-// Arama kutusuna her harf yazıldığında çalışır (Event – Module 3)
+// Arama kutusuna yazınca filtrele
 searchInput.addEventListener("input", function () {
   filterAndSearch();
 });
 
-// Kategori butonlarına tıklama olayı
+// Tür filtresi butonları
 filterBtns.forEach(function (btn) {
   btn.addEventListener("click", function () {
-    // Tüm butonlardan "active" class'ını kaldır
+    // Aktif class'ı güncelle
     filterBtns.forEach(function (b) {
       b.classList.remove("active");
     });
-
-    // Tıklanan butona "active" ekle
     btn.classList.add("active");
 
-    // Aktif kategoriyi güncelle (data-filter attribute'u oku)
-    activeCategory = btn.getAttribute("data-filter");
-
-    // Filtrele
+    // Aktif türü güncelle
+    activeGenre = btn.getAttribute("data-filter");
     filterAndSearch();
   });
 });
 
+// ============================================================
+// SECTION 5: MODAL – Reviews & Add Review
+// Open/close modal, show reviews (Module 5 - Functions)
+// ============================================================
+
+const reviewModal   = document.getElementById("reviewModal");
+const modalOverlay  = document.getElementById("modalOverlay");
+const modalClose    = document.getElementById("modalClose");
+const modalBookInfo = document.getElementById("modalBookInfo");
+const reviewsList   = document.getElementById("reviewsList");
+
+// Kitabı id'ye göre bul (Function - Module 5)
+function findBookById(id) {
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].id === id) {
+      return books[i];
+    }
+  }
+  return null;   // Bulunamazsa null döner (Module 6 - Errors)
+}
+
+// Modal yorum listesini render eder
+function renderReviews(bookId) {
+  const reviews = reviewsData[bookId] || [];
+
+  // Hiç yorum yoksa mesaj göster (Conditional - Module 4)
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = `
+      <p style="color: var(--text-muted, #8a7a6a); text-align: center; padding: 1rem;">
+        <i class="fa-solid fa-feather-pointed"></i>
+        No reviews yet. Be the first to share your thoughts!
+      </p>
+    `;
+    return;
+  }
+
+  let html = "";
+
+  // Her yorumu kart olarak oluştur (Loop - Module 4)
+  for (let i = 0; i < reviews.length; i++) {
+    const review = reviews[i];
+    const stars  = generateStars(review.rating);
+
+    // Etiketleri HTML'e çevir
+    let tagsHTML = "";
+    for (let j = 0; j < review.tags.length; j++) {
+      tagsHTML += `<span class="review-card__tag">#${review.tags[j]}</span>`;
+    }
+
+    html += `
+      <div class="review-card">
+        <div class="review-card__header">
+          <span class="review-card__name">
+            <i class="fa-solid fa-user-pen"></i> ${review.name}
+          </span>
+          <span class="review-card__stars">${stars}</span>
+        </div>
+        ${tagsHTML ? `<div class="review-card__tags">${tagsHTML}</div>` : ""}
+        <p class="review-card__text">${review.text}</p>
+      </div>
+    `;
+  }
+
+  reviewsList.innerHTML = html;
+}
+
+// Modal'ı aç (Function - Module 5)
+function openModal(bookId) {
+  const book = findBookById(bookId);
+
+  // Kitap bulunamazsa hata (Errors - Module 6)
+  if (!book) {
+    console.error("Book not found with id:", bookId);
+    return;
+  }
+
+  currentBookId = bookId;
+
+  // Kitap bilgilerini modal'a yaz
+  const tagsHTML = generateTagsHTML(book.tags);
+
+  modalBookInfo.innerHTML = `
+    <img src="${book.cover}" alt="${book.title}" />
+    <div class="info">
+      <h3>${book.title}</h3>
+      <p><i class="fa-solid fa-feather-pointed"></i> ${book.author} · ${book.year}</p>
+      <p>${book.description}</p>
+      <div class="modal-tags">${tagsHTML}</div>
+    </div>
+  `;
+
+  // Yorumları göster
+  renderReviews(bookId);
+
+  // Tag selector'ı oluştur
+  buildTagSelector();
+
+  // Gizli input'a bookId yaz
+  document.getElementById("reviewBookId").value = bookId;
+
+  // Formu sıfırla
+  resetReviewForm();
+
+  // Modal'ı göster
+  reviewModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";   // Scroll'u engelle
+}
+
+// Modal'ı kapat (Function - Module 5)
+function closeModal() {
+  reviewModal.classList.add("hidden");
+  document.body.style.overflow = "";
+  currentBookId = null;
+}
+
+// Overlay ve close butonuna tıklayınca kapat
+modalOverlay.addEventListener("click", closeModal);
+modalClose.addEventListener("click", closeModal);
+
+// ESC tuşuna basınca kapat (User Interaction - Module 3)
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
 
 // ============================================================
-// SECTION 4: DARK MODE TOGGLE
-// Saves user preference to localStorage
+// SECTION 6: STAR RATING
+// Interactive star rating system (Module 3 - User Interaction)
+// ============================================================
+
+const starRating = document.getElementById("starRating");
+const stars      = starRating.querySelectorAll("i");
+
+// Yıldızları belirtilen değere kadar renklendir
+function highlightStars(value) {
+  stars.forEach(function (star) {
+    const starValue = parseInt(star.getAttribute("data-value"));
+
+    // Conditional - Module 4
+    if (starValue <= value) {
+      star.classList.add("active");
+    } else {
+      star.classList.remove("active");
+    }
+  });
+}
+
+// Her yıldıza hover ve click olayları ekle (Loop - Module 4)
+stars.forEach(function (star) {
+  // Mouse üzerine gelince önizleme
+  star.addEventListener("mouseover", function () {
+    const value = parseInt(this.getAttribute("data-value"));
+    highlightStars(value);
+  });
+
+  // Mouse çekilince seçili puana dön
+  star.addEventListener("mouseout", function () {
+    highlightStars(selectedRating);
+  });
+
+  // Tıklayınca seç
+  star.addEventListener("click", function () {
+    selectedRating = parseInt(this.getAttribute("data-value"));
+    highlightStars(selectedRating);
+  });
+});
+
+// ============================================================
+// SECTION 7: TAG SELECTOR
+// Build and handle content tag selection (Module 5 - Functions)
+// ============================================================
+
+function buildTagSelector() {
+  const tagSelector = document.getElementById("tagSelector");
+  selectedTags = [];   // Sıfırla
+  let html = "";
+
+  for (let i = 0; i < allTags.length; i++) {
+    html += `
+      <button
+        type="button"
+        class="tag-option"
+        data-tag="${allTags[i]}"
+        onclick="toggleTag(this)"
+      >#${allTags[i]}</button>
+    `;
+  }
+
+  tagSelector.innerHTML = html;
+}
+
+// Etiketi seç / kaldır (Function - Module 5)
+function toggleTag(btn) {
+  const tag = btn.getAttribute("data-tag");
+
+  // Etiket seçili mi? (Conditional - Module 4)
+  if (btn.classList.contains("selected")) {
+    btn.classList.remove("selected");
+
+    // selectedTags'dan çıkar (Loop - Module 4)
+    const newTags = [];
+    for (let i = 0; i < selectedTags.length; i++) {
+      if (selectedTags[i] !== tag) {
+        newTags.push(selectedTags[i]);
+      }
+    }
+    selectedTags = newTags;
+
+  } else {
+    // En fazla 5 etiket seçilebilir (Conditional - Module 4)
+    if (selectedTags.length >= 5) {
+      alert("You can select up to 5 tags.");
+      return;
+    }
+    btn.classList.add("selected");
+    selectedTags.push(tag);
+  }
+}
+
+// ============================================================
+// SECTION 8: REVIEW FORM VALIDATION & SUBMIT
+// Validate and save reviews (Module 6 - Errors & Exceptions)
+// ============================================================
+
+const reviewForm        = document.getElementById("reviewForm");
+const reviewerName      = document.getElementById("reviewerName");
+const reviewText        = document.getElementById("reviewText");
+const reviewNameError   = document.getElementById("reviewNameError");
+const reviewRatingError = document.getElementById("reviewRatingError");
+const reviewTextError   = document.getElementById("reviewTextError");
+const reviewSuccess     = document.getElementById("reviewSuccess");
+
+function showError(element, message) {
+  element.textContent = message;
+}
+
+function clearError(element) {
+  element.textContent = "";
+}
+
+function resetReviewForm() {
+  reviewForm.reset();
+  selectedRating = 0;
+  selectedTags   = [];
+  highlightStars(0);
+  clearError(reviewNameError);
+  clearError(reviewRatingError);
+  clearError(reviewTextError);
+  reviewSuccess.classList.add("hidden");
+}
+
+reviewForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // Hataları temizle
+  clearError(reviewNameError);
+  clearError(reviewRatingError);
+  clearError(reviewTextError);
+  reviewSuccess.classList.add("hidden");
+
+  // Değerleri al (String methods - Module 2)
+  const nameValue = reviewerName.value.trim();
+  const textValue = reviewText.value.trim();
+  const bookId    = parseInt(document.getElementById("reviewBookId").value);
+
+  let hasError = false;
+
+  // Doğrulama (Conditional - Module 4)
+  if (nameValue === "") {
+    showError(reviewNameError, "Please enter your name.");
+    hasError = true;
+  } else if (nameValue.length < 2) {
+    showError(reviewNameError, "Name must be at least 2 characters.");
+    hasError = true;
+  }
+
+  if (selectedRating === 0) {
+    showError(reviewRatingError, "Please select a star rating.");
+    hasError = true;
+  }
+
+  if (textValue === "") {
+    showError(reviewTextError, "Please write your review.");
+    hasError = true;
+  } else if (textValue.length < 10) {
+    showError(reviewTextError, "Review must be at least 10 characters.");
+    hasError = true;
+  }
+
+  // Hata yoksa kaydet (Try-Catch - Module 6)
+  if (!hasError) {
+    try {
+      // Yeni yorum objesi oluştur (Variables & Data Types - Module 2)
+      const newReview = {
+        name:   nameValue,
+        rating: selectedRating,
+        tags:   selectedTags,
+        text:   textValue,
+        date:   new Date().toLocaleDateString("en-US", {
+          year: "month", month: "long", day: "numeric"
+        })
+      };
+
+      // reviewsData'ya ekle (Conditional - Module 4)
+      if (!reviewsData[bookId]) {
+        reviewsData[bookId] = [];
+      }
+      reviewsData[bookId].push(newReview);
+
+      // Kitabın reviewCount'unu güncelle (Loop - Module 4)
+      for (let i = 0; i < books.length; i++) {
+        if (books[i].id === bookId) {
+          books[i].reviewCount = reviewsData[bookId].length;
+          break;
+        }
+      }
+
+      // localStorage'a kaydet
+      saveReviews();
+
+      // Yorumları yenile
+      renderReviews(bookId);
+
+      // Formu sıfırla ve başarı mesajı göster
+      resetReviewForm();
+      reviewSuccess.classList.remove("hidden");
+
+      // 3 saniye sonra başarı mesajını gizle
+      setTimeout(function () {
+        reviewSuccess.classList.add("hidden");
+      }, 3000);
+
+      // Kart grid'ini güncelle
+      filterAndSearch();
+
+    } catch (error) {
+      // Hata yönetimi (Errors - Module 6)
+      console.error("Error saving review:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  }
+});
+
+// ============================================================
+// SECTION 9: DARK MODE
+// Save and load theme preference (Module 2 - Variables Ek)
 // ============================================================
 
 const themeToggle = document.getElementById("themeToggle");
 const body        = document.body;
 
-// Sayfa açılınca kayıtlı temayı uygula (localStorage – Module 2 Ek)
 function loadSavedTheme() {
-  const savedTheme = localStorage.getItem("theme");
+  const savedTheme = localStorage.getItem("pageturner_theme");
 
-  // Eğer daha önce dark mode seçildiyse uygula (Conditional – Module 4)
+  // Conditional - Module 4
   if (savedTheme === "dark") {
     body.classList.add("dark-mode");
     themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
@@ -236,40 +704,34 @@ function loadSavedTheme() {
   }
 }
 
-// Tema butonuna tıklanınca geçiş yap
 themeToggle.addEventListener("click", function () {
-  // dark-mode class'ı var mı? (Boolean – Module 2)
   const isDark = body.classList.contains("dark-mode");
 
   if (isDark) {
-    // Açık temaya geç
     body.classList.remove("dark-mode");
     themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    localStorage.setItem("theme", "light");
+    localStorage.setItem("pageturner_theme", "light");
   } else {
-    // Koyu temaya geç
     body.classList.add("dark-mode");
     themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    localStorage.setItem("theme", "dark");
+    localStorage.setItem("pageturner_theme", "dark");
   }
 });
 
-// Sayfa yüklenince çalıştır
 loadSavedTheme();
 
-
 // ============================================================
-// SECTION 5: NAVBAR HAMBURGER MENU
-// Mobile menu toggle with animation
+// SECTION 10: NAVBAR & CONTACT FORM
+// Hamburger menu and contact form validation (Module 3 & 6)
 // ============================================================
 
 const hamburger = document.getElementById("hamburger");
 const navLinks  = document.getElementById("navLinks");
 
 hamburger.addEventListener("click", function () {
-  // Menü açık mı kapalı mı kontrol et (Conditional – Module 4)
   const isOpen = navLinks.classList.contains("open");
 
+  // Conditional - Module 4
   if (isOpen) {
     navLinks.classList.remove("open");
     hamburger.classList.remove("open");
@@ -279,7 +741,7 @@ hamburger.addEventListener("click", function () {
   }
 });
 
-// Nav linkine tıklayınca menüyü kapat (mobil için)
+// Nav linklerine tıklayınca menüyü kapat
 const navLinkItems = document.querySelectorAll(".navbar__links a");
 navLinkItems.forEach(function (link) {
   link.addEventListener("click", function () {
@@ -288,11 +750,7 @@ navLinkItems.forEach(function (link) {
   });
 });
 
-// ============================================================
-// SECTION 5B: CONTACT FORM VALIDATION
-// Validates inputs and shows error messages (Module 3 & 6)
-// ============================================================
-
+// ----- Contact Form -----
 const contactForm  = document.getElementById("contactForm");
 const nameInput    = document.getElementById("userName");
 const emailInput   = document.getElementById("userEmail");
@@ -302,43 +760,27 @@ const emailError   = document.getElementById("emailError");
 const messageError = document.getElementById("messageError");
 const formSuccess  = document.getElementById("formSuccess");
 
-// E-posta formatını kontrol eden fonksiyon (Function + Regex – Module 5)
+// E-posta doğrulama (Function - Module 5)
 function isValidEmail(email) {
-  // Basit e-posta kontrolü: birşey @ birşey . birşey
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailPattern.test(email);
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
 }
 
-// Hata mesajını göster (Function – Module 5)
-function showError(element, message) {
-  element.textContent = message;
-}
-
-// Hata mesajını temizle
-function clearError(element) {
-  element.textContent = "";
-}
-
-// Form gönderildiğinde doğrulama yap (Errors & Exceptions – Module 6)
 contactForm.addEventListener("submit", function (event) {
-  // Sayfanın yenilenmesini engelle
   event.preventDefault();
 
-  // Hataları sıfırla
   clearError(nameError);
   clearError(emailError);
   clearError(messageError);
   formSuccess.classList.add("hidden");
 
-  // Değerleri al ve boşlukları temizle (String methods – Module 2)
   const nameValue    = nameInput.value.trim();
   const emailValue   = emailInput.value.trim();
   const messageValue = messageInput.value.trim();
 
-  // Hata takibi için değişken (Variables – Module 2)
   let hasError = false;
 
-  // İsim kontrolü (Conditional – Module 4)
+  // Doğrulama (Conditional - Module 4)
   if (nameValue === "") {
     showError(nameError, "Name is required.");
     hasError = true;
@@ -347,7 +789,6 @@ contactForm.addEventListener("submit", function (event) {
     hasError = true;
   }
 
-  // E-posta kontrolü
   if (emailValue === "") {
     showError(emailError, "Email is required.");
     hasError = true;
@@ -356,7 +797,6 @@ contactForm.addEventListener("submit", function (event) {
     hasError = true;
   }
 
-  // Mesaj kontrolü
   if (messageValue === "") {
     showError(messageError, "Message is required.");
     hasError = true;
@@ -365,21 +805,18 @@ contactForm.addEventListener("submit", function (event) {
     hasError = true;
   }
 
-  // Hata yoksa formu "gönder" (Try-Catch – Module 6)
+  // Try-Catch - Module 6
   if (!hasError) {
     try {
-      // Gerçek bir backend olmadığı için başarı mesajı gösteriyoruz
       formSuccess.classList.remove("hidden");
-      contactForm.reset();   // Formu temizle
+      contactForm.reset();
 
-      // 4 saniye sonra başarı mesajını gizle
       setTimeout(function () {
         formSuccess.classList.add("hidden");
       }, 4000);
 
     } catch (error) {
-      // Hata oluşursa kullanıcıya bildir (Errors – Module 6)
-      console.error("Form submission error:", error);
+      console.error("Contact form error:", error);
       alert("Something went wrong. Please try again.");
     }
   }

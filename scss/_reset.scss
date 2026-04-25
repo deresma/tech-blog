@@ -8,7 +8,7 @@
 
 html {
   font-size: $font-size-base;
-  scroll-behavior: smooth;          // Smooth scroll (anchor linkleri için)
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,11 +18,15 @@ body {
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 
-  // Dark mode aktifken body renkleri değişir
   &.dark-mode {
     background-color: $bg-dark;
     color: $text-dark;
   }
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-heading;   // Başlıklarda Playfair Display
+  line-height: 1.2;
 }
 
 a {
@@ -30,9 +34,7 @@ a {
   color: inherit;
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
 img {
   max-width: 100%;
@@ -46,9 +48,10 @@ button {
   font-family: $font-main;
 }
 
-input,
-textarea {
+input, textarea {
   font-family: $font-main;
   font-size: $font-size-base;
   outline: none;
 }
+
+.hidden { display: none !important; }

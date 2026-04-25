@@ -1,32 +1,57 @@
 .about {
   padding: $spacing-2xl $spacing-xl;
-  background-color: rgba($primary, 0.05);
+  background: linear-gradient(135deg, $cream-dark 0%, $cream 100%);
   transition: $transition;
 
   .dark-mode & {
-    background-color: rgba($primary, 0.08);
+    background: linear-gradient(135deg, #1e0f0f 0%, $bg-dark 100%);
   }
 
   &__container {
-    max-width: 700px;
+    max-width: $max-width;
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2xl;
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    flex: 1;
 
     h2 {
+      font-family: $font-heading;
       font-size: $font-size-2xl;
-      font-weight: 700;
+      font-weight: 900;
+      color: $primary;
       margin-bottom: $spacing-lg;
-      color: $text-light;
 
-      .dark-mode & {
-        color: $text-dark;
-      }
+      .dark-mode & { color: $gold; }
     }
 
     p {
       font-size: $font-size-lg;
       color: $text-muted;
       line-height: 1.8;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    border: 4px solid $gold;
+
+    img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
     }
   }
 }
@@ -36,9 +61,7 @@
   background-color: $bg-light;
   transition: $transition;
 
-  .dark-mode & {
-    background-color: $bg-dark;
-  }
+  .dark-mode & { background-color: $bg-dark; }
 
   &__container {
     max-width: 600px;
@@ -46,14 +69,13 @@
     text-align: center;
 
     h2 {
+      font-family: $font-heading;
       font-size: $font-size-2xl;
-      font-weight: 700;
+      font-weight: 900;
+      color: $primary;
       margin-bottom: $spacing-sm;
-      color: $text-light;
 
-      .dark-mode & {
-        color: $text-dark;
-      }
+      .dark-mode & { color: $gold; }
     }
 
     p {
@@ -62,9 +84,7 @@
     }
   }
 
-  &__form {
-    text-align: left;
-  }
+  &__form { text-align: left; }
 }
 
 .form {
@@ -78,13 +98,10 @@
       font-size: $font-size-sm;
       color: $text-light;
 
-      .dark-mode & {
-        color: $text-dark;
-      }
+      .dark-mode & { color: $text-dark; }
     }
 
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
       padding: $spacing-md;
       border: 2px solid $border-light;
@@ -100,24 +117,19 @@
       }
 
       &:focus {
-        border-color: $primary;
-        box-shadow: 0 0 0 4px rgba($primary, 0.1);
+        border-color: $gold;
+        box-shadow: 0 0 0 4px rgba($gold, 0.15);
       }
 
-      &::placeholder {
-        color: $text-muted;
-      }
+      &::placeholder { color: $text-muted; }
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
+    textarea { resize: vertical; min-height: 120px; }
   }
 
   &__error {
     display: block;
-    color: #e74c3c;
+    color: #c0392b;
     font-size: $font-size-sm;
     margin-top: $spacing-xs;
     min-height: 1.2em;
@@ -135,33 +147,38 @@
   width: 100%;
   padding: $spacing-md;
   background-color: $primary;
-  color: #ffffff;
+  color: $gold;
   font-size: $font-size-base;
   font-weight: 700;
   border-radius: $border-radius-sm;
   transition: $transition;
   letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  font-family: $font-main;
+  border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: $primary-dark;
     transform: translateY(-2px);
-    box-shadow: $shadow-md;
+    box-shadow: $shadow-gold;
   }
 
-  &:active {
-    transform: translateY(0);
-  }
+  &:active { transform: translateY(0); }
 }
 
 .footer {
-  background-color: $card-light;
-  border-top: 1px solid $border-light;
+  background-color: $primary;
+  border-top: 3px solid $gold;
   padding: $spacing-xl;
   transition: $transition;
 
   .dark-mode & {
-    background-color: $card-dark;
-    border-top-color: $border-dark;
+    background-color: darken($bg-dark, 3%);
+    border-top-color: $gold;
   }
 
   &__container {
@@ -180,14 +197,15 @@
   }
 
   &__logo {
+    font-family: $font-heading;
     font-size: $font-size-xl;
     font-weight: 700;
-    color: $primary;
+    color: $gold;
   }
 
   &__copy {
     font-size: $font-size-sm;
-    color: $text-muted;
+    color: rgba($cream, 0.7);
   }
 
   &__social {
@@ -196,18 +214,13 @@
 
     a {
       font-size: $font-size-lg;
-      color: $text-muted;
+      color: rgba($cream, 0.7);
       transition: $transition;
 
       &:hover {
-        color: $primary;
+        color: $gold;
         transform: translateY(-3px);
       }
     }
   }
-}
-
-// Yardımcı class
-.hidden {
-  display: none !important;
 }

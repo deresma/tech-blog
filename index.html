@@ -3,18 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechPulse Blog</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome (ikonlar için) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <!-- CSS -->
+    <title>PageTurner – Discover Your Next Read</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -22,27 +13,18 @@
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
       <div class="navbar__container">
-        <!-- Logo -->
         <a href="#" class="navbar__logo">
-          <i class="fa-solid fa-bolt"></i> TechPulse
+          <i class="fa-solid fa-book-open"></i> PageTurner
         </a>
-
-        <!-- Hamburger (mobil için) -->
         <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
-
-        <!-- Linkler -->
         <ul class="navbar__links" id="navLinks">
           <li><a href="#home">Home</a></li>
-          <li><a href="#articles">Articles</a></li>
+          <li><a href="#books">Books</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-
-        <!-- Dark Mode Toggle -->
         <button class="navbar__theme" id="themeToggle" aria-label="Toggle theme">
           <i class="fa-solid fa-moon"></i>
         </button>
@@ -52,62 +34,160 @@
     <!-- ========== HERO ========== -->
     <section class="hero" id="home">
       <div class="hero__content">
-        <p class="hero__tag">Welcome to TechPulse</p>
-        <h1 class="hero__title">Stay Ahead of the <span>Tech Curve</span></h1>
-        <p class="hero__subtitle">
-          Explore articles on programming, AI, design, and the latest in technology.
+        <p class="hero__tag">
+          <i class="fa-solid fa-award"></i> NYT Bestseller Collection
         </p>
-
-        <!-- Arama Kutusu -->
+        <h1 class="hero__title">
+          Discover Your <span>Next Favorite</span> Book
+        </h1>
+        <p class="hero__subtitle">
+          Explore award-winning fantasy novels, read honest reviews from fellow
+          readers, and find your perfect next read.
+        </p>
         <div class="hero__search">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input
             type="text"
             id="searchInput"
-            placeholder="Search articles..."
-            aria-label="Search articles"
+            placeholder="Search by title, author or tag..."
+            aria-label="Search books"
           />
         </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-number">50+</span>
+            <span class="hero__stat-label">Books</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">1K+</span>
+            <span class="hero__stat-label">Reviews</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">#1</span>
+            <span class="hero__stat-label">NYT Listed</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&q=80" alt="Stack of books"/>
       </div>
     </section>
 
-    <!-- ========== ARTICLES ========== -->
-    <section class="articles" id="articles">
-      <div class="articles__container">
+    <!-- ========== BOOKS ========== -->
+    <section class="books" id="books">
+      <div class="books__container">
+        <div class="books__header">
+          <h2 class="books__title">Featured Books</h2>
+          <p class="books__subtitle">Handpicked NYT bestsellers loved by readers worldwide</p>
+        </div>
 
-        <h2 class="articles__title">Latest Articles</h2>
-
-        <!-- Kategori Filtreleri -->
-        <div class="articles__filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="programming">Programming</button>
-          <button class="filter-btn" data-filter="ai">AI</button>
-          <button class="filter-btn" data-filter="design">Design</button>
-          <button class="filter-btn" data-filter="tools">Tools</button>
+        <!-- Filtreler -->
+        <div class="books__filters">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fa-solid fa-layer-group"></i> All
+          </button>
+          <button class="filter-btn" data-filter="fantasy">
+            <i class="fa-solid fa-dragon"></i> Fantasy
+          </button>
+          <button class="filter-btn" data-filter="romance">
+            <i class="fa-solid fa-heart"></i> Romance
+          </button>
+          <button class="filter-btn" data-filter="thriller">
+            <i class="fa-solid fa-skull"></i> Thriller
+          </button>
+          <button class="filter-btn" data-filter="adventure">
+            <i class="fa-solid fa-compass"></i> Adventure
+          </button>
         </div>
 
         <!-- Kart Grid -->
-        <div class="articles__grid" id="articlesGrid">
-          <!-- Kartlar JavaScript ile buraya gelecek -->
-        </div>
+        <div class="books__grid" id="booksGrid"></div>
 
-        <!-- Sonuç bulunamadı mesajı -->
-        <p class="articles__empty hidden" id="emptyMessage">
-          No articles found. Try a different search or category.
+        <p class="books__empty hidden" id="emptyMessage">
+          <i class="fa-solid fa-book-open"></i>
+          No books found. Try a different search or genre.
         </p>
-
       </div>
     </section>
+
+    <!-- ========== REVIEW MODAL ========== -->
+    <div class="modal hidden" id="reviewModal">
+      <div class="modal__overlay" id="modalOverlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" id="modalClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Kitap Bilgisi -->
+        <div class="modal__book-info" id="modalBookInfo"></div>
+
+        <!-- Yorumlar -->
+        <div class="modal__reviews">
+          <h3 class="modal__reviews-title">
+            <i class="fa-solid fa-comments"></i> Reader Reviews
+          </h3>
+          <div class="modal__reviews-list" id="reviewsList"></div>
+        </div>
+
+        <!-- Yorum Formu -->
+        <div class="modal__add-review">
+          <h4><i class="fa-solid fa-pen"></i> Share Your Thoughts</h4>
+          <form id="reviewForm" novalidate>
+            <input type="hidden" id="reviewBookId" />
+            <div class="form__group">
+              <label for="reviewerName">Your Name</label>
+              <input type="text" id="reviewerName" placeholder="Enter your name" />
+              <span class="form__error" id="reviewNameError"></span>
+            </div>
+            <div class="form__group">
+              <label>Your Rating</label>
+              <div class="star-rating" id="starRating">
+                <i class="fa-solid fa-star" data-value="1"></i>
+                <i class="fa-solid fa-star" data-value="2"></i>
+                <i class="fa-solid fa-star" data-value="3"></i>
+                <i class="fa-solid fa-star" data-value="4"></i>
+                <i class="fa-solid fa-star" data-value="5"></i>
+              </div>
+              <span class="form__error" id="reviewRatingError"></span>
+            </div>
+            <div class="form__group">
+              <label>Content Tags</label>
+              <div class="tag-selector" id="tagSelector"></div>
+            </div>
+            <div class="form__group">
+              <label for="reviewText">Your Review</label>
+              <textarea id="reviewText" rows="4" placeholder="What did you think about this book?"></textarea>
+              <span class="form__error" id="reviewTextError"></span>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-paper-plane"></i> Post Review
+            </button>
+            <p class="form__success hidden" id="reviewSuccess">
+              ✅ Review posted successfully!
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- ========== ABOUT ========== -->
     <section class="about" id="about">
       <div class="about__container">
-        <h2>About TechPulse</h2>
-        <p>
-          TechPulse is a blog dedicated to developers, designers, and tech
-          enthusiasts. Our mission is to deliver clear, practical, and
-          up-to-date articles that help you grow in the world of technology.
-        </p>
+        <div class="about__text">
+          <h2>About PageTurner</h2>
+          <p>
+            PageTurner is a community-driven book discovery platform focused on
+            fantasy and fiction. We curate NYT bestselling novels and bring
+            together readers who love to share their passion for great stories.
+          </p>
+          <p>
+            Whether you're into epic world-building, heart-wrenching romances,
+            or spine-tingling thrillers — we have the perfect book waiting for you.
+          </p>
+        </div>
+        <div class="about__image">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=500&q=80" alt="Library"/>
+        </div>
       </div>
     </section>
 
@@ -115,7 +195,7 @@
     <section class="contact" id="contact">
       <div class="contact__container">
         <h2>Get In Touch</h2>
-        <p>Have a question or want to contribute? Send us a message!</p>
+        <p>Have a book recommendation or want to contribute? We'd love to hear from you!</p>
         <form class="contact__form" id="contactForm" novalidate>
           <div class="form__group">
             <label for="userName">Name</label>
@@ -132,7 +212,9 @@
             <textarea id="userMessage" rows="5" placeholder="Your message..."></textarea>
             <span class="form__error" id="messageError"></span>
           </div>
-          <button type="submit" class="btn-submit">Send Message</button>
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
           <p class="form__success hidden" id="formSuccess">
             ✅ Message sent successfully!
           </p>
@@ -143,17 +225,18 @@
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
       <div class="footer__container">
-        <p class="footer__logo"><i class="fa-solid fa-bolt"></i> TechPulse</p>
-        <p class="footer__copy">© 2025 TechPulse. All rights reserved.</p>
+        <p class="footer__logo">
+          <i class="fa-solid fa-book-open"></i> PageTurner
+        </p>
+        <p class="footer__copy">© 2025 PageTurner. All rights reserved.</p>
         <div class="footer__social">
           <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Goodreads"><i class="fa-brands fa-goodreads"></i></a>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
   </body>
 </html>

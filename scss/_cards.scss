@@ -1,30 +1,35 @@
-.articles {
+.books {
   padding: $spacing-2xl $spacing-xl;
   background-color: $bg-light;
   transition: $transition;
 
-  .dark-mode & {
-    background-color: $bg-dark;
-  }
+  .dark-mode & { background-color: $bg-dark; }
 
   &__container {
     max-width: $max-width;
     margin: 0 auto;
   }
 
-  &__title {
-    font-size: $font-size-2xl;
-    font-weight: 700;
-    margin-bottom: $spacing-xl;
+  &__header {
     text-align: center;
-    color: $text-light;
-
-    .dark-mode & {
-      color: $text-dark;
-    }
+    margin-bottom: $spacing-2xl;
   }
 
-  // Filtre butonları
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-size-2xl;
+    font-weight: 900;
+    color: $primary;
+    margin-bottom: $spacing-sm;
+
+    .dark-mode & { color: $gold; }
+  }
+
+  &__subtitle {
+    color: $text-muted;
+    font-size: $font-size-lg;
+  }
+
   &__filters {
     display: flex;
     flex-wrap: wrap;
@@ -33,19 +38,13 @@
     margin-bottom: $spacing-2xl;
   }
 
-  // Kart grid sistemi
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);   // 3 sütun
+    grid-template-columns: repeat(3, 1fr);
     gap: $spacing-xl;
 
-    @media (max-width: $desktop) {
-      grid-template-columns: repeat(2, 1fr); // Tablet: 2 sütun
-    }
-
-    @media (max-width: $tablet) {
-      grid-template-columns: 1fr;            // Mobil: 1 sütun
-    }
+    @media (max-width: $desktop) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: $tablet)  { grid-template-columns: 1fr; }
   }
 
   &__empty {
@@ -53,11 +52,16 @@
     color: $text-muted;
     font-size: $font-size-lg;
     padding: $spacing-2xl;
+
+    i { margin-right: $spacing-sm; color: $gold; }
   }
 }
 
-// Filtre butonu stili
+// ===== Filtre Butonları =====
 .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
   padding: $spacing-sm $spacing-lg;
   border-radius: 999px;
   border: 2px solid $border-light;
@@ -67,10 +71,7 @@
   background: transparent;
   transition: $transition;
 
-  .dark-mode & {
-    border-color: $border-dark;
-    color: $text-muted;
-  }
+  .dark-mode & { border-color: $border-dark; }
 
   &:hover {
     border-color: $primary;
@@ -80,12 +81,12 @@
   &.active {
     background-color: $primary;
     border-color: $primary;
-    color: #ffffff;
+    color: $gold;
   }
 }
 
-// Blog Kartı
-.card {
+// ===== Kitap Kartı =====
+.book-card {
   background-color: $card-light;
   border-radius: $border-radius;
   overflow: hidden;
@@ -94,6 +95,7 @@
   transition: $transition;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   .dark-mode & {
     background-color: $card-dark;
@@ -101,14 +103,34 @@
   }
 
   &:hover {
-    transform: translateY(-6px);   // Yukarı kayma efekti
+    transform: translateY(-8px);
     box-shadow: $shadow-lg;
+    border-color: $gold;
   }
 
-  &__image {
+  // NYT Badge
+  &__badge {
+    position: absolute;
+    top: $spacing-md;
+    left: $spacing-md;
+    background-color: $primary;
+    color: $gold;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    z-index: 1;
+  }
+
+  &__cover {
     width: 100%;
-    height: 200px;
+    height: 260px;
     object-fit: cover;
+    transition: $transition;
+
+    &:hover { transform: scale(1.03); }
   }
 
   &__body {
@@ -116,74 +138,353 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    gap: $spacing-sm;
   }
 
-  &__tag {
+  &__genre {
     display: inline-block;
-    background-color: rgba($primary, 0.12);
-    color: $primary;
+    background-color: rgba($gold, 0.15);
+    color: darken($gold, 15%);
     font-size: 0.75rem;
     font-weight: 700;
     padding: $spacing-xs $spacing-sm;
     border-radius: $border-radius-sm;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: $spacing-sm;
     width: fit-content;
+
+    .dark-mode & {
+      background-color: rgba($gold, 0.2);
+      color: $gold-light;
+    }
   }
 
   &__title {
+    font-family: $font-heading;
     font-size: $font-size-lg;
     font-weight: 700;
-    margin-bottom: $spacing-sm;
     color: $text-light;
-    line-height: 1.4;
+    line-height: 1.3;
 
-    .dark-mode & {
-      color: $text-dark;
-    }
-  }
-
-  &__excerpt {
-    font-size: $font-size-sm;
-    color: $text-muted;
-    line-height: 1.6;
-    flex: 1;                        // Kartı aşağıya iter
-    margin-bottom: $spacing-md;
-  }
-
-  &__meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: $font-size-sm;
-    color: $text-muted;
-    border-top: 1px solid $border-light;
-    padding-top: $spacing-md;
-    margin-top: auto;
-
-    .dark-mode & {
-      border-top-color: $border-dark;
-    }
+    .dark-mode & { color: $text-dark; }
   }
 
   &__author {
+    font-size: $font-size-sm;
+    color: $text-muted;
+    font-style: italic;
+
+    i { color: $gold; margin-right: $spacing-xs; }
+  }
+
+  &__rating {
     display: flex;
     align-items: center;
     gap: $spacing-xs;
 
-    i {
+    .stars { color: $gold; font-size: $font-size-sm; }
+    .rating-score {
+      font-weight: 700;
       color: $primary;
+      font-size: $font-size-sm;
+
+      .dark-mode & { color: $gold; }
+    }
+    .rating-count {
+      font-size: $font-size-sm;
+      color: $text-muted;
     }
   }
 
-  &__date {
+  // İçerik etiketleri
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin-top: $spacing-xs;
+  }
+
+  &__tag {
+    background-color: rgba($primary, 0.08);
+    color: $primary;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px $spacing-sm;
+    border-radius: 999px;
+    border: 1px solid rgba($primary, 0.2);
+
+    .dark-mode & {
+      background-color: rgba($primary-light, 0.15);
+      color: $primary-light;
+      border-color: rgba($primary-light, 0.3);
+    }
+  }
+
+  &__footer {
     display: flex;
     align-items: center;
-    gap: $spacing-xs;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: $spacing-md;
+    border-top: 1px solid $border-light;
 
-    i {
-      color: $secondary;
+    .dark-mode & { border-top-color: $border-dark; }
+  }
+
+  &__reviews-count {
+    font-size: $font-size-sm;
+    color: $text-muted;
+
+    i { color: $primary; margin-right: $spacing-xs; }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    background-color: $primary;
+    color: $gold;
+    font-size: $font-size-sm;
+    font-weight: 700;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-sm;
+    transition: $transition;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-dark;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+  }
+}
+
+// ===== Modal =====
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+  }
+
+  &__content {
+    position: relative;
+    background-color: $card-light;
+    border-radius: $border-radius;
+    max-width: 680px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: $spacing-xl;
+    box-shadow: $shadow-lg;
+    border: 2px solid $gold;
+    z-index: 1;
+
+    .dark-mode & {
+      background-color: $surface-dark;
+      border-color: $gold;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    font-size: $font-size-xl;
+    color: $text-muted;
+    transition: $transition;
+
+    &:hover { color: $primary; transform: rotate(90deg); }
+  }
+
+  &__book-info {
+    display: flex;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-xl;
+    border-bottom: 2px solid $border-light;
+
+    .dark-mode & { border-bottom-color: $border-dark; }
+
+    img {
+      width: 100px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: $border-radius-sm;
+      border: 2px solid $gold;
+      flex-shrink: 0;
+    }
+
+    .info {
+      flex: 1;
+
+      h3 {
+        font-family: $font-heading;
+        font-size: $font-size-xl;
+        color: $primary;
+        margin-bottom: $spacing-xs;
+
+        .dark-mode & { color: $gold; }
+      }
+
+      p { color: $text-muted; font-style: italic; margin-bottom: $spacing-sm; }
+
+      .modal-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+      }
+    }
+  }
+
+  &__reviews-title {
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    color: $primary;
+    margin-bottom: $spacing-lg;
+
+    .dark-mode & { color: $gold; }
+
+    i { margin-right: $spacing-sm; }
+  }
+
+  &__reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__add-review {
+    border-top: 2px solid $border-light;
+    padding-top: $spacing-xl;
+
+    .dark-mode & { border-top-color: $border-dark; }
+
+    h4 {
+      font-family: $font-heading;
+      font-size: $font-size-lg;
+      color: $primary;
+      margin-bottom: $spacing-lg;
+
+      .dark-mode & { color: $gold; }
+
+      i { margin-right: $spacing-sm; }
+    }
+  }
+}
+
+// ===== Okuyucu Yorum Kartı =====
+.review-card {
+  background-color: rgba($cream, 0.5);
+  border: 1px solid $border-light;
+  border-radius: $border-radius-sm;
+  padding: $spacing-md;
+  transition: $transition;
+
+  .dark-mode & {
+    background-color: rgba($primary, 0.08);
+    border-color: $border-dark;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__name {
+    font-weight: 700;
+    color: $primary;
+    font-size: $font-size-sm;
+
+    .dark-mode & { color: $gold; }
+  }
+
+  &__stars { color: $gold; font-size: $font-size-sm; }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__tag {
+    background-color: rgba($gold, 0.15);
+    color: darken($gold, 20%);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px $spacing-sm;
+    border-radius: 999px;
+
+    .dark-mode & {
+      background-color: rgba($gold, 0.2);
+      color: $gold-light;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $text-muted;
+    line-height: 1.6;
+  }
+}
+
+// ===== Star Rating =====
+.star-rating {
+  display: flex;
+  gap: $spacing-xs;
+  margin-top: $spacing-xs;
+
+  i {
+    font-size: $font-size-xl;
+    color: $border-light;
+    cursor: pointer;
+    transition: $transition;
+
+    &.active, &.hovered { color: $gold; }
+    &:hover { transform: scale(1.2); }
+  }
+}
+
+// ===== Tag Selector =====
+.tag-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-top: $spacing-xs;
+
+  .tag-option {
+    padding: $spacing-xs $spacing-md;
+    border-radius: 999px;
+    border: 2px solid $border-light;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $text-muted;
+    cursor: pointer;
+    transition: $transition;
+    background: transparent;
+
+    .dark-mode & { border-color: $border-dark; }
+
+    &:hover { border-color: $gold; color: darken($gold, 15%); }
+
+    &.selected {
+      background-color: $gold;
+      border-color: $gold;
+      color: $text-light;
     }
   }
 }

@@ -1,43 +1,50 @@
 // ========== COLORS ==========
-$primary:        #6c63ff;      // Ana mor renk
-$primary-dark:   #574fd6;      // Hover için koyu mor
-$secondary:      #ff6584;      // Vurgu rengi (tag'ler)
-$bg-light:       #f9f9f9;      // Açık tema arka plan
-$bg-dark:        #0f0f1a;      // Koyu tema arka plan
-$card-light:     #ffffff;      // Kart rengi (açık)
-$card-dark:      #1a1a2e;      // Kart rengi (koyu)
-$text-light:     #222222;      // Açık temada yazı
-$text-dark:      #e0e0e0;      // Koyu temada yazı
-$text-muted:     #888888;      // Gri yardımcı yazı
-$border-light:   #e0e0e0;      // Açık tema border
-$border-dark:    #2a2a3e;      // Koyu tema border
+$primary:        #8B1a1a;      // Koyu bordo
+$primary-dark:   #6b1414;      // Hover bordo
+$primary-light:  #c9484e;      // Açık bordo
+$gold:           #c9a84c;      // Altın sarısı
+$gold-light:     #f0d080;      // Açık altın
+$cream:          #fdf6e3;      // Krem (açık tema bg)
+$cream-dark:     #f0e6c8;      // Koyu krem
+$bg-light:       #fdf6e3;      // Açık tema arka plan
+$bg-dark:        #12080a;      // Koyu tema arka plan
+$card-light:     #ffffff;
+$card-dark:      #1e1010;
+$surface-dark:   #2a1515;      // Koyu tema kart yüzeyi
+$text-light:     #1a0a0a;
+$text-dark:      #f0e6d3;
+$text-muted:     #8a7a6a;
+$border-light:   #e8d5b0;
+$border-dark:    #3a2020;
 
 // ========== TYPOGRAPHY ==========
-$font-main:      'Inter', sans-serif;
+$font-heading:   'Playfair Display', serif;   // Başlıklar
+$font-main:      'Inter', sans-serif;         // Gövde yazısı
 $font-size-base: 16px;
-$font-size-sm:   0.875rem;     // 14px
-$font-size-lg:   1.125rem;     // 18px
-$font-size-xl:   1.5rem;       // 24px
-$font-size-2xl:  2rem;         // 32px
-$font-size-3xl:  2.75rem;      // 44px
+$font-size-sm:   0.875rem;
+$font-size-lg:   1.125rem;
+$font-size-xl:   1.5rem;
+$font-size-2xl:  2rem;
+$font-size-3xl:  2.75rem;
 
 // ========== SPACING ==========
-$spacing-xs:  0.25rem;   // 4px
-$spacing-sm:  0.5rem;    // 8px
-$spacing-md:  1rem;      // 16px
-$spacing-lg:  1.5rem;    // 24px
-$spacing-xl:  2rem;      // 32px
-$spacing-2xl: 4rem;      // 64px
+$spacing-xs:  0.25rem;
+$spacing-sm:  0.5rem;
+$spacing-md:  1rem;
+$spacing-lg:  1.5rem;
+$spacing-xl:  2rem;
+$spacing-2xl: 4rem;
 
 // ========== LAYOUT ==========
-$max-width:      1200px;
-$border-radius:  12px;
+$max-width:       1200px;
+$border-radius:   12px;
 $border-radius-sm: 6px;
 
 // ========== SHADOWS ==========
-$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.10);
-$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+$shadow-sm: 0 2px 8px rgba(139, 26, 26, 0.08);
+$shadow-md: 0 4px 20px rgba(139, 26, 26, 0.12);
+$shadow-lg: 0 8px 32px rgba(139, 26, 26, 0.20);
+$shadow-gold: 0 4px 20px rgba(201, 168, 76, 0.25);
 
 // ========== TRANSITIONS ==========
 $transition: all 0.3s ease;
