@@ -1,0 +1,189 @@
+.articles {
+  padding: $spacing-2xl $spacing-xl;
+  background-color: $bg-light;
+  transition: $transition;
+
+  .dark-mode & {
+    background-color: $bg-dark;
+  }
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    margin-bottom: $spacing-xl;
+    text-align: center;
+    color: $text-light;
+
+    .dark-mode & {
+      color: $text-dark;
+    }
+  }
+
+  // Filtre butonları
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    justify-content: center;
+    margin-bottom: $spacing-2xl;
+  }
+
+  // Kart grid sistemi
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   // 3 sütun
+    gap: $spacing-xl;
+
+    @media (max-width: $desktop) {
+      grid-template-columns: repeat(2, 1fr); // Tablet: 2 sütun
+    }
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;            // Mobil: 1 sütun
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    color: $text-muted;
+    font-size: $font-size-lg;
+    padding: $spacing-2xl;
+  }
+}
+
+// Filtre butonu stili
+.filter-btn {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: 999px;
+  border: 2px solid $border-light;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-muted;
+  background: transparent;
+  transition: $transition;
+
+  .dark-mode & {
+    border-color: $border-dark;
+    color: $text-muted;
+  }
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+
+  &.active {
+    background-color: $primary;
+    border-color: $primary;
+    color: #ffffff;
+  }
+}
+
+// Blog Kartı
+.card {
+  background-color: $card-light;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-light;
+  transition: $transition;
+  display: flex;
+  flex-direction: column;
+
+  .dark-mode & {
+    background-color: $card-dark;
+    border-color: $border-dark;
+  }
+
+  &:hover {
+    transform: translateY(-6px);   // Yukarı kayma efekti
+    box-shadow: $shadow-lg;
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: $spacing-lg;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tag {
+    display: inline-block;
+    background-color: rgba($primary, 0.12);
+    color: $primary;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-sm;
+    width: fit-content;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+    color: $text-light;
+    line-height: 1.4;
+
+    .dark-mode & {
+      color: $text-dark;
+    }
+  }
+
+  &__excerpt {
+    font-size: $font-size-sm;
+    color: $text-muted;
+    line-height: 1.6;
+    flex: 1;                        // Kartı aşağıya iter
+    margin-bottom: $spacing-md;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $font-size-sm;
+    color: $text-muted;
+    border-top: 1px solid $border-light;
+    padding-top: $spacing-md;
+    margin-top: auto;
+
+    .dark-mode & {
+      border-top-color: $border-dark;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+
+    i {
+      color: $primary;
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+
+    i {
+      color: $secondary;
+    }
+  }
+}

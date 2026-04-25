@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechPulse Blog</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome (ikonlar için) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar__container">
+        <!-- Logo -->
+        <a href="#" class="navbar__logo">
+          <i class="fa-solid fa-bolt"></i> TechPulse
+        </a>
+
+        <!-- Hamburger (mobil için) -->
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Linkler -->
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Dark Mode Toggle -->
+        <button class="navbar__theme" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="hero__content">
+        <p class="hero__tag">Welcome to TechPulse</p>
+        <h1 class="hero__title">Stay Ahead of the <span>Tech Curve</span></h1>
+        <p class="hero__subtitle">
+          Explore articles on programming, AI, design, and the latest in technology.
+        </p>
+
+        <!-- Arama Kutusu -->
+        <div class="hero__search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search articles..."
+            aria-label="Search articles"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ARTICLES ========== -->
+    <section class="articles" id="articles">
+      <div class="articles__container">
+
+        <h2 class="articles__title">Latest Articles</h2>
+
+        <!-- Kategori Filtreleri -->
+        <div class="articles__filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="programming">Programming</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="tools">Tools</button>
+        </div>
+
+        <!-- Kart Grid -->
+        <div class="articles__grid" id="articlesGrid">
+          <!-- Kartlar JavaScript ile buraya gelecek -->
+        </div>
+
+        <!-- Sonuç bulunamadı mesajı -->
+        <p class="articles__empty hidden" id="emptyMessage">
+          No articles found. Try a different search or category.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about" id="about">
+      <div class="about__container">
+        <h2>About TechPulse</h2>
+        <p>
+          TechPulse is a blog dedicated to developers, designers, and tech
+          enthusiasts. Our mission is to deliver clear, practical, and
+          up-to-date articles that help you grow in the world of technology.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="contact" id="contact">
+      <div class="contact__container">
+        <h2>Get In Touch</h2>
+        <p>Have a question or want to contribute? Send us a message!</p>
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form__group">
+            <label for="userName">Name</label>
+            <input type="text" id="userName" placeholder="Your name" />
+            <span class="form__error" id="nameError"></span>
+          </div>
+          <div class="form__group">
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" placeholder="your@email.com" />
+            <span class="form__error" id="emailError"></span>
+          </div>
+          <div class="form__group">
+            <label for="userMessage">Message</label>
+            <textarea id="userMessage" rows="5" placeholder="Your message..."></textarea>
+            <span class="form__error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+          <p class="form__success hidden" id="formSuccess">
+            ✅ Message sent successfully!
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="footer__container">
+        <p class="footer__logo"><i class="fa-solid fa-bolt"></i> TechPulse</p>
+        <p class="footer__copy">© 2025 TechPulse. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

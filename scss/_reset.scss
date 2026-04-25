@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;          // Smooth scroll (anchor linkleri için)
+}
+
+body {
+  font-family: $font-main;
+  background-color: $bg-light;
+  color: $text-light;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // Dark mode aktifken body renkleri değişir
+  &.dark-mode {
+    background-color: $bg-dark;
+    color: $text-dark;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: $font-main;
+}
+
+input,
+textarea {
+  font-family: $font-main;
+  font-size: $font-size-base;
+  outline: none;
+}

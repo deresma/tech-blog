@@ -1,0 +1,153 @@
+.navbar {
+  position: fixed;              // Sayfa kaydırılınca üstte kalır
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $card-light;
+  border-bottom: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  transition: $transition;
+
+  // Dark mode
+  .dark-mode & {
+    background-color: $card-dark;
+    border-bottom-color: $border-dark;
+  }
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: $spacing-md $spacing-xl;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    transition: $transition;
+
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+
+    a {
+      font-weight: 600;
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $text-light;
+      transition: $transition;
+      position: relative;
+
+      // Alt çizgi animasyonu hover'da
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $primary;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $primary;
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      .dark-mode & {
+        color: $text-dark;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    // Mobil: gizli, hamburger açınca görünür
+    @media (max-width: $tablet) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: $card-light;
+      border-bottom: 1px solid $border-light;
+      padding: $spacing-lg $spacing-xl;
+      gap: $spacing-lg;
+      box-shadow: $shadow-md;
+
+      .dark-mode & {
+        background-color: $card-dark;
+        border-bottom-color: $border-dark;
+      }
+
+      // JS "open" class'ı eklediğinde görünür
+      &.open {
+        display: flex;
+      }
+    }
+  }
+
+  // Hamburger butonu (sadece mobilde görünür)
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: $spacing-sm;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: $text-light;
+      border-radius: 2px;
+      transition: $transition;
+
+      .dark-mode & {
+        background-color: $text-dark;
+      }
+    }
+
+    // X animasyonu (JS "open" class'ı ekler)
+    &.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    &.open span:nth-child(2) { opacity: 0; }
+    &.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  // Dark mode toggle butonu
+  &__theme {
+    font-size: $font-size-lg;
+    color: $text-muted;
+    padding: $spacing-sm;
+    border-radius: $border-radius-sm;
+    transition: $transition;
+
+    &:hover {
+      color: $primary;
+      background-color: rgba($primary, 0.1);
+    }
+  }
+}

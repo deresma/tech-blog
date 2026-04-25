@@ -1,0 +1,48 @@
+// ========== COLORS ==========
+$primary:        #6c63ff;      // Ana mor renk
+$primary-dark:   #574fd6;      // Hover için koyu mor
+$secondary:      #ff6584;      // Vurgu rengi (tag'ler)
+$bg-light:       #f9f9f9;      // Açık tema arka plan
+$bg-dark:        #0f0f1a;      // Koyu tema arka plan
+$card-light:     #ffffff;      // Kart rengi (açık)
+$card-dark:      #1a1a2e;      // Kart rengi (koyu)
+$text-light:     #222222;      // Açık temada yazı
+$text-dark:      #e0e0e0;      // Koyu temada yazı
+$text-muted:     #888888;      // Gri yardımcı yazı
+$border-light:   #e0e0e0;      // Açık tema border
+$border-dark:    #2a2a3e;      // Koyu tema border
+
+// ========== TYPOGRAPHY ==========
+$font-main:      'Inter', sans-serif;
+$font-size-base: 16px;
+$font-size-sm:   0.875rem;     // 14px
+$font-size-lg:   1.125rem;     // 18px
+$font-size-xl:   1.5rem;       // 24px
+$font-size-2xl:  2rem;         // 32px
+$font-size-3xl:  2.75rem;      // 44px
+
+// ========== SPACING ==========
+$spacing-xs:  0.25rem;   // 4px
+$spacing-sm:  0.5rem;    // 8px
+$spacing-md:  1rem;      // 16px
+$spacing-lg:  1.5rem;    // 24px
+$spacing-xl:  2rem;      // 32px
+$spacing-2xl: 4rem;      // 64px
+
+// ========== LAYOUT ==========
+$max-width:      1200px;
+$border-radius:  12px;
+$border-radius-sm: 6px;
+
+// ========== SHADOWS ==========
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.10);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+// ========== TRANSITIONS ==========
+$transition: all 0.3s ease;
+
+// ========== BREAKPOINTS ==========
+$mobile:  576px;
+$tablet:  768px;
+$desktop: 1024px;
