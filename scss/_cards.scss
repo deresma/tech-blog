@@ -19,10 +19,11 @@
     font-family: $font-heading;
     font-size: $font-size-2xl;
     font-weight: 900;
-    color: $primary;
+    background: linear-gradient(135deg, $primary, $pink-dark);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: $spacing-sm;
-
-    .dark-mode & { color: $gold; }
   }
 
   &__subtitle {
@@ -53,7 +54,7 @@
     font-size: $font-size-lg;
     padding: $spacing-2xl;
 
-    i { margin-right: $spacing-sm; color: $gold; }
+    i { margin-right: $spacing-sm; color: $pink; }
   }
 }
 
@@ -74,14 +75,16 @@
   .dark-mode & { border-color: $border-dark; }
 
   &:hover {
-    border-color: $primary;
-    color: $primary;
+    border-color: $pink;
+    color: $pink-dark;
+    background-color: $pink-light;
   }
 
   &.active {
-    background-color: $primary;
-    border-color: $primary;
-    color: $gold;
+    background: linear-gradient(135deg, $primary, $pink-dark);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: $shadow-pink;
   }
 }
 
@@ -91,7 +94,7 @@
   border-radius: $border-radius;
   overflow: hidden;
   box-shadow: $shadow-sm;
-  border: 1px solid $border-light;
+  border: 1.5px solid $border-light;
   transition: $transition;
   display: flex;
   flex-direction: column;
@@ -105,32 +108,32 @@
   &:hover {
     transform: translateY(-8px);
     box-shadow: $shadow-lg;
-    border-color: $gold;
+    border-color: $pink;
   }
 
-  // NYT Badge
   &__badge {
     position: absolute;
     top: $spacing-md;
     left: $spacing-md;
-    background-color: $primary;
-    color: $gold;
-    font-size: 0.7rem;
+    background: linear-gradient(135deg, $primary, $pink-dark);
+    color: #ffffff;
+    font-size: 0.68rem;
     font-weight: 700;
     padding: $spacing-xs $spacing-sm;
     border-radius: $border-radius-sm;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     z-index: 1;
+    box-shadow: $shadow-sm;
   }
 
   &__cover {
     width: 100%;
     height: 260px;
     object-fit: cover;
-    transition: $transition;
+    transition: transform 0.4s ease;
 
-    &:hover { transform: scale(1.03); }
+    &:hover { transform: scale(1.04); }
   }
 
   &__body {
@@ -143,19 +146,21 @@
 
   &__genre {
     display: inline-block;
-    background-color: rgba($gold, 0.15);
-    color: darken($gold, 15%);
-    font-size: 0.75rem;
+    background: linear-gradient(135deg, $pink-light, $lavender);
+    color: $primary;
+    font-size: 0.72rem;
     font-weight: 700;
     padding: $spacing-xs $spacing-sm;
     border-radius: $border-radius-sm;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     width: fit-content;
+    border: 1px solid $border-light;
 
     .dark-mode & {
-      background-color: rgba($gold, 0.2);
-      color: $gold-light;
+      background: rgba($primary, 0.2);
+      color: $primary-light;
+      border-color: $border-dark;
     }
   }
 
@@ -174,7 +179,7 @@
     color: $text-muted;
     font-style: italic;
 
-    i { color: $gold; margin-right: $spacing-xs; }
+    i { color: $pink; margin-right: $spacing-xs; }
   }
 
   &__rating {
@@ -182,21 +187,22 @@
     align-items: center;
     gap: $spacing-xs;
 
-    .stars { color: $gold; font-size: $font-size-sm; }
+    .stars { color: $pink; font-size: $font-size-sm; }
+
     .rating-score {
       font-weight: 700;
       color: $primary;
       font-size: $font-size-sm;
 
-      .dark-mode & { color: $gold; }
+      .dark-mode & { color: $primary-light; }
     }
+
     .rating-count {
       font-size: $font-size-sm;
       color: $text-muted;
     }
   }
 
-  // İçerik etiketleri
   &__tags {
     display: flex;
     flex-wrap: wrap;
@@ -205,18 +211,18 @@
   }
 
   &__tag {
-    background-color: rgba($primary, 0.08);
+    background-color: $lavender;
     color: $primary;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
     padding: 2px $spacing-sm;
     border-radius: 999px;
-    border: 1px solid rgba($primary, 0.2);
+    border: 1px solid $lavender-dark;
 
     .dark-mode & {
-      background-color: rgba($primary-light, 0.15);
+      background-color: rgba($primary, 0.15);
       color: $primary-light;
-      border-color: rgba($primary-light, 0.3);
+      border-color: $border-dark;
     }
   }
 
@@ -226,7 +232,7 @@
     justify-content: space-between;
     margin-top: auto;
     padding-top: $spacing-md;
-    border-top: 1px solid $border-light;
+    border-top: 1.5px solid $border-light;
 
     .dark-mode & { border-top-color: $border-dark; }
   }
@@ -235,27 +241,28 @@
     font-size: $font-size-sm;
     color: $text-muted;
 
-    i { color: $primary; margin-right: $spacing-xs; }
+    i { color: $pink; margin-right: $spacing-xs; }
   }
 
   &__btn {
     display: inline-flex;
     align-items: center;
     gap: $spacing-xs;
-    background-color: $primary;
-    color: $gold;
+    background: linear-gradient(135deg, $primary, $pink-dark);
+    color: #ffffff;
     font-size: $font-size-sm;
     font-weight: 700;
     padding: $spacing-sm $spacing-md;
-    border-radius: $border-radius-sm;
+    border-radius: 999px;
     transition: $transition;
     border: none;
     cursor: pointer;
+    box-shadow: $shadow-sm;
 
     &:hover {
-      background-color: $primary-dark;
       transform: translateY(-2px);
-      box-shadow: $shadow-md;
+      box-shadow: $shadow-pink;
+      opacity: 0.9;
     }
   }
 }
@@ -273,8 +280,8 @@
   &__overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
+    background-color: rgba(61, 43, 61, 0.6);
+    backdrop-filter: blur(6px);
   }
 
   &__content {
@@ -287,12 +294,20 @@
     overflow-y: auto;
     padding: $spacing-xl;
     box-shadow: $shadow-lg;
-    border: 2px solid $gold;
+    border: 2px solid $border-light;
     z-index: 1;
+
+    // Scrollbar stili
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: $cream; }
+    &::-webkit-scrollbar-thumb {
+      background: $pink;
+      border-radius: 999px;
+    }
 
     .dark-mode & {
       background-color: $surface-dark;
-      border-color: $gold;
+      border-color: $border-dark;
     }
   }
 
@@ -302,9 +317,19 @@
     right: $spacing-md;
     font-size: $font-size-xl;
     color: $text-muted;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
     transition: $transition;
 
-    &:hover { color: $primary; transform: rotate(90deg); }
+    &:hover {
+      color: $primary;
+      background-color: $lavender;
+      transform: rotate(90deg);
+    }
   }
 
   &__book-info {
@@ -321,8 +346,9 @@
       height: 140px;
       object-fit: cover;
       border-radius: $border-radius-sm;
-      border: 2px solid $gold;
+      border: 3px solid $pink-light;
       flex-shrink: 0;
+      box-shadow: $shadow-md;
     }
 
     .info {
@@ -331,13 +357,20 @@
       h3 {
         font-family: $font-heading;
         font-size: $font-size-xl;
-        color: $primary;
+        background: linear-gradient(135deg, $primary, $pink-dark);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         margin-bottom: $spacing-xs;
-
-        .dark-mode & { color: $gold; }
       }
 
-      p { color: $text-muted; font-style: italic; margin-bottom: $spacing-sm; }
+      p {
+        color: $text-muted;
+        font-style: italic;
+        margin-bottom: $spacing-sm;
+        font-size: $font-size-sm;
+        line-height: 1.6;
+      }
 
       .modal-tags {
         display: flex;
@@ -353,9 +386,8 @@
     color: $primary;
     margin-bottom: $spacing-lg;
 
-    .dark-mode & { color: $gold; }
-
-    i { margin-right: $spacing-sm; }
+    .dark-mode & { color: $primary-light; }
+    i { margin-right: $spacing-sm; color: $pink; }
   }
 
   &__reviews-list {
@@ -377,23 +409,22 @@
       color: $primary;
       margin-bottom: $spacing-lg;
 
-      .dark-mode & { color: $gold; }
-
-      i { margin-right: $spacing-sm; }
+      .dark-mode & { color: $primary-light; }
+      i { margin-right: $spacing-sm; color: $pink; }
     }
   }
 }
 
-// ===== Okuyucu Yorum Kartı =====
+// ===== Yorum Kartı =====
 .review-card {
-  background-color: rgba($cream, 0.5);
-  border: 1px solid $border-light;
+  background: linear-gradient(135deg, rgba($pink-light, 0.4), rgba($lavender, 0.4));
+  border: 1.5px solid $border-light;
   border-radius: $border-radius-sm;
   padding: $spacing-md;
   transition: $transition;
 
   .dark-mode & {
-    background-color: rgba($primary, 0.08);
+    background: rgba($primary, 0.08);
     border-color: $border-dark;
   }
 
@@ -409,10 +440,10 @@
     color: $primary;
     font-size: $font-size-sm;
 
-    .dark-mode & { color: $gold; }
+    .dark-mode & { color: $primary-light; }
   }
 
-  &__stars { color: $gold; font-size: $font-size-sm; }
+  &__stars { color: $pink; font-size: $font-size-sm; }
 
   &__tags {
     display: flex;
@@ -422,30 +453,30 @@
   }
 
   &__tag {
-    background-color: rgba($gold, 0.15);
-    color: darken($gold, 20%);
-    font-size: 0.7rem;
+    background-color: rgba($pink, 0.15);
+    color: $pink-dark;
+    font-size: 0.68rem;
     font-weight: 600;
     padding: 2px $spacing-sm;
     border-radius: 999px;
 
     .dark-mode & {
-      background-color: rgba($gold, 0.2);
-      color: $gold-light;
+      background-color: rgba($pink, 0.1);
+      color: $pink-light;
     }
   }
 
   &__text {
     font-size: $font-size-sm;
     color: $text-muted;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 }
 
 // ===== Star Rating =====
 .star-rating {
   display: flex;
-  gap: $spacing-xs;
+  gap: $spacing-sm;
   margin-top: $spacing-xs;
 
   i {
@@ -454,8 +485,8 @@
     cursor: pointer;
     transition: $transition;
 
-    &.active, &.hovered { color: $gold; }
-    &:hover { transform: scale(1.2); }
+    &.active, &.hovered { color: $pink; }
+    &:hover { transform: scale(1.25); }
   }
 }
 
@@ -469,7 +500,7 @@
   .tag-option {
     padding: $spacing-xs $spacing-md;
     border-radius: 999px;
-    border: 2px solid $border-light;
+    border: 1.5px solid $border-light;
     font-size: $font-size-sm;
     font-weight: 600;
     color: $text-muted;
@@ -479,12 +510,16 @@
 
     .dark-mode & { border-color: $border-dark; }
 
-    &:hover { border-color: $gold; color: darken($gold, 15%); }
+    &:hover {
+      border-color: $pink;
+      color: $pink-dark;
+      background-color: $pink-light;
+    }
 
     &.selected {
-      background-color: $gold;
-      border-color: $gold;
-      color: $text-light;
+      background: linear-gradient(135deg, $primary, $pink-dark);
+      border-color: transparent;
+      color: #ffffff;
     }
   }
 }

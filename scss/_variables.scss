@@ -1,25 +1,27 @@
 // ========== COLORS ==========
-$primary:        #8B1a1a;      // Koyu bordo
-$primary-dark:   #6b1414;      // Hover bordo
-$primary-light:  #c9484e;      // Açık bordo
-$gold:           #c9a84c;      // Altın sarısı
-$gold-light:     #f0d080;      // Açık altın
-$cream:          #fdf6e3;      // Krem (açık tema bg)
-$cream-dark:     #f0e6c8;      // Koyu krem
-$bg-light:       #fdf6e3;      // Açık tema arka plan
-$bg-dark:        #12080a;      // Koyu tema arka plan
+$primary:        #9b72aa;      // Soft mor
+$primary-dark:   #7d5a8a;      // Hover mor
+$primary-light:  #c4a0d4;      // Açık mor
+$rose:           #e8a0b4;      // Gül pembesi
+$rose-light:     #f5c6d5;      // Açık pembe
+$gold:           #d4a0b0;      // Pembe-altın ton
+$gold-light:     #f0c8d5;      // Açık pembe ton
+$cream:          #fdf8f5;      // Ana krem
+$cream-dark:     #f5ede8;      // Koyu krem
+$bg-light:       #fdf8f5;      // Açık tema arka plan
+$bg-dark:        #1a1020;      // Koyu tema arka plan
 $card-light:     #ffffff;
-$card-dark:      #1e1010;
-$surface-dark:   #2a1515;      // Koyu tema kart yüzeyi
-$text-light:     #1a0a0a;
-$text-dark:      #f0e6d3;
-$text-muted:     #8a7a6a;
-$border-light:   #e8d5b0;
-$border-dark:    #3a2020;
+$card-dark:      #241830;
+$surface-dark:   #2e1f3a;
+$text-light:     #3d2c3a;      // Koyu mor-kahve yazı
+$text-dark:      #f0e8f5;
+$text-muted:     #9a8a95;
+$border-light:   #eddde8;
+$border-dark:    #3a2545;
 
 // ========== TYPOGRAPHY ==========
-$font-heading:   'Playfair Display', serif;   // Başlıklar
-$font-main:      'Inter', sans-serif;         // Gövde yazısı
+$font-heading:   'Playfair Display', serif;
+$font-main:      'Inter', sans-serif;
 $font-size-base: 16px;
 $font-size-sm:   0.875rem;
 $font-size-lg:   1.125rem;
@@ -36,15 +38,15 @@ $spacing-xl:  2rem;
 $spacing-2xl: 4rem;
 
 // ========== LAYOUT ==========
-$max-width:       1200px;
-$border-radius:   12px;
-$border-radius-sm: 6px;
+$max-width:        1200px;
+$border-radius:    16px;
+$border-radius-sm: 8px;
 
 // ========== SHADOWS ==========
-$shadow-sm: 0 2px 8px rgba(139, 26, 26, 0.08);
-$shadow-md: 0 4px 20px rgba(139, 26, 26, 0.12);
-$shadow-lg: 0 8px 32px rgba(139, 26, 26, 0.20);
-$shadow-gold: 0 4px 20px rgba(201, 168, 76, 0.25);
+$shadow-sm:   0 2px 12px rgba(155, 114, 170, 0.08);
+$shadow-md:   0 4px 24px rgba(155, 114, 170, 0.14);
+$shadow-lg:   0 8px 40px rgba(155, 114, 170, 0.22);
+$shadow-rose: 0 4px 20px rgba(232, 160, 180, 0.30);
 
 // ========== TRANSITIONS ==========
 $transition: all 0.3s ease;
